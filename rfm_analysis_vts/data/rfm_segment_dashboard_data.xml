@@ -1,0 +1,23 @@
+<odoo noupdate="1">
+
+<!--    <record id="rfm_segment_dashboard_premium" model="rfm.segment.dashboard">-->
+<!--        <field name="segment_id" ref="rfm_segment_premium"/>-->
+<!--    </record>-->
+
+<!--    <record id="rfm_segment_dashboard_loyal" model="rfm.segment.dashboard">-->
+<!--        <field name="segment_id" ref="rfm_segment_loyal"/>-->
+<!--    </record>-->
+
+<!--    <record id="rfm_segment_dashboard_potential" model="rfm.segment.dashboard">-->
+<!--        <field name="segment_id" ref="rfm_segment_potential"/>-->
+<!--    </record>-->
+
+<!--    <record id="rfm_segment_dashboard_at_risk" model="rfm.segment.dashboard">-->
+<!--        <field name="segment_id" ref="rfm_segment_at_risk"/>-->
+<!--    </record>-->
+
+<!--    <record id="rfm_segment_dashboard_lost" model="rfm.segment.dashboard">-->
+<!--        <field name="segment_id" ref="rfm_segment_lost"/>-->
+<!--    </record>-->
+
+</odoo>

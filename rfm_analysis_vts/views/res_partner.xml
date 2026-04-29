@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_res_partner_form_customer_kpis" model="ir.ui.view">
+        <field name="name">res.partner.form.customer.kpis</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Customer Analysis">
+
+                    <!-- Recompute Button -->
+                    <group>
+                        <button name="action_compute_rfm"
+                                type="object"
+                                string="Recompute RFM"
+                                class="btn-primary"
+                                groups="base.group_system"/>
+                    </group>
+
+                    <group>
+                        <!-- Order Summary -->
+                        <group string="Order Summary (Life Time)">
+                            <field name="total_orders" readonly="1"/>
+                            <field name="life_time_order_value" readonly="1"/>
+                            <field name="average_total_amount" readonly="1"/>
+                            <field name="average_days_between_orders" readonly="1"/>
+                            <field name="average_order_frequency" readonly="1"/>
+                            <field name="last_order_date" readonly="1"/>
+                        </group>
+
+                        <!-- Order Summery For (Date Range Wise)-->
+                        <group string="Order Summery (Date Range Wise)">
+                            <field name="total_orders_by_date_range" readonly="1"/>
+                            <field name="total_orders_amount_by_date_range" readonly="1"/>
+                        </group>
+                    </group>
+
+                    <!-- RFM Analysis -->
+                    <group string="RFM Analysis">
+                        <group>
+                            <field name="rfm_recency" readonly="1"/>
+                            <field name="rfm_recency_score" readonly="1"/>
+                            <field name="rfm_frequency_score" readonly="1"/>
+                            <field name="rfm_monetary_score" readonly="1"/>
+                        </group>
+
+                        <group>
+                            <field name="rfm_score" readonly="1"/>
+                            <field name="rfm_segment_id"/>
+                            <field name="rfm_last_computed" readonly="1"/>
+                        </group>
+                    </group>
+
+                </page>
+                <page string="Log Details">
+                    <field name="rfm_log_ids" readonly="1">
+                        <list create="0" edit="0">
+                            <field name="order_date"/>
+                            <field name="old_segment_id"/>
+                            <field name="new_segment_id"/>
+                        </list>
+                    </field>
+
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+    <record id="view_partner_tree_rfm" model="ir.ui.view">
+        <field name="name">res.partner.tree.rfm</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//list" position="inside">
+                <field name="rfm_segment_id"/>
+            </xpath>
+
+        </field>
+    </record>
+
+
+    <record id="view_partner_search_rfm" model="ir.ui.view">
+        <field name="name">res.partner.search.rfm</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <xpath expr="//search" position="inside">
+                <searchpanel>
+                    <field name="rfm_segment_id"
+                           string="RFM Segment"
+                           enable_counters="1"/>
+                </searchpanel>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

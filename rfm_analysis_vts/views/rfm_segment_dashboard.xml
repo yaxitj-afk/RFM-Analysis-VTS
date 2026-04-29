@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_rfm_segment_kanban" model="ir.ui.view">
+        <field name="name">rfm.segment.dashboard.kanban</field>
+        <field name="model">rfm.segment.dashboard</field>
+        <field name="arch" type="xml">
+            <kanban class="o_kanban_dashboard o_rfm_kanban" create="false" sample="1" disable_open="1">
+                <field name="segment_id"/>
+                <field name="customer_count"/>
+                <field name="order_count"/>
+                <field name="order_percentage"/>
+                <field name="customer_percentage"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="o_kanban_card_header d-flex flex-column p-3 mb-0 border-bottom">
+                            <div class="o_kanban_card_header_title d-flex justify-content-between align-items-baseline mb-2">
+                                <h4 class="fw-bolder text-primary mb-0">
+                                    <i class="fa fa-chart-pie me-2 text-muted"/>
+                                    <t t-esc="record.segment_id.value"/>
+                                </h4>
+
+                                <div class="o_kanban_dropdown_section ms-auto">
+                                    <div class="dropdown">
+                                        <a class="dropdown-toggle o-no-caret btn btn-link text-dark p-0"
+                                           data-bs-toggle="dropdown" href="#" role="button">
+                                            <i class="fa fa-ellipsis-v"/>
+                                        </a>
+                                        <div class="dropdown-menu" role="menu">
+                                            <a type="action" class="dropdown-item"
+                                               name="rfm_analysis_vts.action_segment_leads">Leads
+                                            </a>
+                                            <a type="action" class="dropdown-item"
+                                               name="rfm_analysis_vts.action_segment_quotations">Quotations
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2 g-0">
+                                <div class="col-6 pe-2">
+                                    <small class="text-muted d-block text-uppercase fw-bold text-truncate"
+                                           style="font-size: 0.8rem;">
+                                        <i class="fa fa-user me-1"/>
+                                        Customers
+                                    </small>
+                                    <div class="d-flex align-items-center mt-1 text-nowrap">
+                                        <span class="fw-bold text-success me-2" style="font-size: 0.85rem;">
+                                            <t t-esc="record.customer_percentage.value"/>%
+                                        </span>
+                                        <div class="progress flex-grow-1" style="height: 4px;">
+                                            <div class="progress-bar bg-success" role="progressbar"
+                                                 t-attf-style="width: #{record.customer_percentage.raw_value}%"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-6 ps-2 border-start">
+                                    <small class="text-muted d-block text-uppercase fw-bold text-truncate"
+                                           style="font-size: 0.8rem;">
+                                        <i class="fa fa-shopping-cart me-1"/>
+                                        Orders
+                                    </small>
+                                    <div class="d-flex align-items-center mt-1 text-nowrap">
+                                        <span class="fw-bold text-info me-2" style="font-size: 0.85rem;">
+                                            <t t-esc="record.order_percentage.value"/>%
+                                        </span>
+                                        <div class="progress flex-grow-1" style="height: 4px;">
+                                            <div class="progress-bar bg-info" role="progressbar"
+                                                 t-attf-style="width: #{record.order_percentage.raw_value}%"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="o_kanban_card_content d-flex p-3 gap-2 bg-light">
+                            <div class="col-6 p-0">
+                                <button type="object" name="action_open_customers"
+                                        class="btn btn-white w-100 d-flex flex-column align-items-center border py-2 shadow-sm">
+                                    <span class="h5 fw-bold mb-0 text-dark">
+                                        <t t-esc="record.customer_count.value"/>
+                                    </span>
+                                    <small class="text-muted">Total Customers</small>
+                                </button>
+                            </div>
+                            <div class="col-6 p-0">
+                                <button type="object" name="action_open_orders"
+                                        class="btn btn-white w-100 d-flex flex-column align-items-center border py-2 shadow-sm">
+                                    <span class="h5 fw-bold mb-0 text-dark">
+                                        <t t-esc="record.order_count.value"/>
+                                    </span>
+                                    <small class="text-muted">Total Orders</small>
+                                </button>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!--    &lt;!&ndash; ============================= &ndash;&gt;-->
+    <!--    &lt;!&ndash; PIE CHART : Customers by Segment &ndash;&gt;-->
+    <!--    &lt;!&ndash; ============================= &ndash;&gt;-->
+    <!--    <record id="view_rfm_segment_dashboard_graph_pie" model="ir.ui.view">-->
+    <!--        <field name="name">rfm.segment.dashboard.graph.pie</field>-->
+    <!--        <field name="model">rfm.segment.dashboard</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <graph string="Customers by Segment" type="pie">-->
+    <!--                <field name="segment_id" type="row"/>-->
+    <!--                <field name="customer_count" type="measure"/>-->
+    <!--            </graph>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <!--    &lt;!&ndash; ============================= &ndash;&gt;-->
+    <!--    &lt;!&ndash; BAR CHART : Customers & Orders &ndash;&gt;-->
+    <!--    &lt;!&ndash; ============================= &ndash;&gt;-->
+    <!--    <record id="view_rfm_segment_dashboard_graph_bar" model="ir.ui.view">-->
+    <!--        <field name="name">rfm.segment.dashboard.graph.bar</field>-->
+    <!--        <field name="model">rfm.segment.dashboard</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <graph string="RFM Segment Performance" type="bar">-->
+    <!--                <field name="segment_id" type="row"/>-->
+    <!--                <field name="customer_count" type="measure"/>-->
+    <!--                <field name="order_count" type="measure"/>-->
+    <!--            </graph>-->
+    <!--        </field>-->
+    <!--    </record>-->
+    <!--    &lt;!&ndash; ============================= &ndash;&gt;-->
+    <!--    &lt;!&ndash; line CHART : Customers & Orders &ndash;&gt;-->
+    <!--    &lt;!&ndash; ============================= &ndash;&gt;-->
+    <!--    <record id="view_rfm_segment_dashboard_graph_line" model="ir.ui.view">-->
+    <!--        <field name="name">rfm.segment.dashboard.graph.line</field>-->
+    <!--        <field name="model">rfm.segment.dashboard</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <graph string="RFM Segment Comparison" type="line">-->
+    <!--                <field name="segment_id" type="row"/>-->
+    <!--                <field name="customer_count" type="measure"/>-->
+    <!--                <field name="order_count" type="measure"/>-->
+    <!--            </graph>-->
+    <!--        </field>-->
+    <!--    </record>-->
+
+    <!-- RFM SEGMENT LIST -->
+    <record id="view_rfm_segment_list" model="ir.ui.view">
+        <field name="name">rfm.segment.dashboard.list</field>
+        <field name="model">rfm.segment.dashboard</field>
+        <field name="arch" type="xml">
+            <list string="RFM Segments">
+                <field name="segment_id"/>
+                <field name="customer_count"/>
+                <field name="order_count"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- DASHBOARD ACTION -->
+    <record id="action_rfm_segment_dashboard" model="ir.actions.act_window">
+        <field name="name">RFM Dashboard</field>
+        <field name="res_model">rfm.segment.dashboard</field>
+        <field name="view_mode">kanban,list</field>
+        <field name="view_id" ref="view_rfm_segment_kanban"/>
+        <field name="target">current</field>
+    </record>
+
+
+    <!-- LEADS ACTION -->
+    <record id="action_segment_leads" model="ir.actions.act_window">
+        <field name="name">Leads</field>
+        <field name="res_model">crm.lead</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">
+            [('partner_id.rfm_segment_id', '=', context.get('segment_id'))]
+        </field>
+    </record>
+
+
+    <!-- QUOTATIONS ACTION -->
+    <record id="action_segment_quotations" model="ir.actions.act_window">
+        <field name="name">Quotations</field>
+        <field name="res_model">sale.order</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">
+            [
+            ('state', 'in', ('draft','sent')),
+            ('partner_id.rfm_segment_id', '=', context.get('segment_id'))
+            ]
+        </field>
+    </record>
+
+</odoo>

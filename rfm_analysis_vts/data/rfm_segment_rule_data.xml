@@ -1,0 +1,53 @@
+<odoo noupdate="1">
+
+    <!-- PREMIUM -->
+    <record id="rfm_segment_rule_premium" model="rfm.segment.rule">
+        <field name="name">Premium Customers</field>
+        <field name="segment_id" ref="rfm_segment_premium"/>
+        <field name="recency_min">5</field>
+        <field name="frequency_min">5</field>
+        <field name="monetary_min">5</field>
+        <field name="sequence">1</field>
+    </record>
+
+    <!-- LOYAL -->
+    <record id="rfm_segment_rule_loyal" model="rfm.segment.rule">
+        <field name="name">Loyal Customers</field>
+        <field name="segment_id" ref="rfm_segment_loyal"/>
+        <field name="recency_min">4</field>
+        <field name="frequency_min">4</field>
+        <field name="monetary_min">4</field>
+        <field name="sequence">2</field>
+    </record>
+
+    <!-- POTENTIAL -->
+    <record id="rfm_segment_rule_potential" model="rfm.segment.rule">
+        <field name="name">Potential Customers</field>
+        <field name="segment_id" ref="rfm_segment_potential"/>
+        <field name="recency_min">3</field>
+        <field name="frequency_min">2</field>
+        <field name="monetary_min">2</field>
+        <field name="sequence">3</field>
+    </record>
+
+    <!-- AT RISK -->
+    <record id="rfm_segment_rule_at_risk" model="rfm.segment.rule">
+        <field name="name">At Risk Customers</field>
+        <field name="segment_id" ref="rfm_segment_at_risk"/>
+        <field name="recency_min">2</field>
+        <field name="frequency_min">1</field>
+        <field name="monetary_min">1</field>
+        <field name="sequence">4</field>
+    </record>
+
+    <!-- LOST -->
+    <record id="rfm_segment_rule_lost" model="rfm.segment.rule">
+        <field name="name">Lost Customers</field>
+        <field name="segment_id" ref="rfm_segment_lost"/>
+        <field name="recency_min">1</field>
+        <field name="frequency_min">0</field>
+        <field name="monetary_min">0</field>
+        <field name="sequence">5</field>
+    </record>
+
+</odoo>

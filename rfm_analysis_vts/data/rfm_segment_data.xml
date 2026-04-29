@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+
+    <!-- High Value / Premium Customers -->
+    <record id="rfm_segment_premium" model="rfm.segments">
+        <field name="name">Premium</field>
+        <field name="sequence">1</field>
+        <field name="active">True</field>
+    </record>
+
+    <!-- Loyal Customers -->
+    <record id="rfm_segment_loyal" model="rfm.segments">
+        <field name="name">Loyal</field>
+        <field name="sequence">2</field>
+        <field name="active">True</field>
+    </record>
+
+    <!-- Potential / Growing Customers -->
+    <record id="rfm_segment_potential" model="rfm.segments">
+        <field name="name">Potential</field>
+        <field name="sequence">3</field>
+        <field name="active">True</field>
+    </record>
+
+    <!-- At Risk Customers -->
+    <record id="rfm_segment_at_risk" model="rfm.segments">
+        <field name="name">At Risk</field>
+        <field name="sequence">4</field>
+        <field name="active">True</field>
+    </record>
+
+    <!-- Lost / Inactive Customers -->
+    <record id="rfm_segment_lost" model="rfm.segments">
+        <field name="name">Lost</field>
+        <field name="sequence">5</field>
+        <field name="active">True</field>
+    </record>
+
+</odoo>

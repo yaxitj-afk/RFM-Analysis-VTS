@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo noupdate="1">
+
+    <!-- ===================== -->
+    <!-- RECENCY RULES -->
+    <!-- ===================== -->
+
+    <record id="rfm_rule_recency_5" model="rfm.rule">
+        <field name="name">Recency ≤ 30 days</field>
+        <field name="metric">recency</field>
+        <field name="value_from">0</field>
+        <field name="value_to">30</field>
+        <field name="score">5</field>
+        <field name="sequence">1</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="rfm_rule_recency_4" model="rfm.rule">
+        <field name="name">Recency 31–60 days</field>
+        <field name="metric">recency</field>
+        <field name="value_from">31</field>
+        <field name="value_to">60</field>
+        <field name="score">4</field>
+        <field name="sequence">2</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="rfm_rule_recency_3" model="rfm.rule">
+        <field name="name">Recency 61–90 days</field>
+        <field name="metric">recency</field>
+        <field name="value_from">61</field>
+        <field name="value_to">90</field>
+        <field name="score">3</field>
+        <field name="sequence">3</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="rfm_rule_recency_2" model="rfm.rule">
+        <field name="name">Recency 91–180 days</field>
+        <field name="metric">recency</field>
+        <field name="value_from">91</field>
+        <field name="value_to">180</field>
+        <field name="score">2</field>
+        <field name="sequence">4</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="rfm_rule_recency_1" model="rfm.rule">
+        <field name="name">Recency &gt; 180 days</field>
+        <field name="metric">recency</field>
+        <field name="value_from">181</field>
+        <field name="value_to">9999</field>
+        <field name="score">1</field>
+        <field name="sequence">5</field>
+        <field name="active">True</field>
+    </record>
+
+    <!-- ===================== -->
+    <!-- FREQUENCY RULES -->
+    <!-- ===================== -->
+
+    <record id="rfm_rule_frequency_1" model="rfm.rule">
+        <field name="name">Frequency 0–1</field>
+        <field name="metric">frequency</field>
+        <field name="value_from">0</field>
+        <field name="value_to">1</field>
+        <field name="score">1</field>
+        <field name="sequence">1</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="rfm_rule_frequency_2" model="rfm.rule">
+        <field name="name">Frequency 2–3</field>
+        <field name="metric">frequency</field>
+        <field name="value_from">2</field>
+        <field name="value_to">3</field>
+        <field name="score">2</field>
+        <field name="sequence">2</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="rfm_rule_frequency_3" model="rfm.rule">
+        <field name="name">Frequency 4–6</field>
+        <field name="metric">frequency</field>
+        <field name="value_from">4</field>
+        <field name="value_to">6</field>
+        <field name="score">3</field>
+        <field name="sequence">3</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="rfm_rule_frequency_4" model="rfm.rule">
+        <field name="name">Frequency 7–9</field>
+        <field name="metric">frequency</field>
+        <field name="value_from">7</field>
+        <field name="value_to">9</field>
+        <field name="score">4</field>
+        <field name="sequence">4</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="rfm_rule_frequency_5" model="rfm.rule">
+        <field name="name">Frequency ≥ 10</field>
+        <field name="metric">frequency</field>
+        <field name="value_from">10</field>
+        <field name="value_to">9999</field>
+        <field name="score">5</field>
+        <field name="sequence">5</field>
+        <field name="active">True</field>
+    </record>
+
+    <!-- ===================== -->
+    <!-- MONETARY RULES -->
+    <!-- ===================== -->
+
+    <record id="rfm_rule_monetary_1" model="rfm.rule">
+        <field name="name">Monetary 0–499</field>
+        <field name="metric">monetary</field>
+        <field name="value_from">0</field>
+        <field name="value_to">499</field>
+        <field name="score">1</field>
+        <field name="sequence">1</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="rfm_rule_monetary_2" model="rfm.rule">
+        <field name="name">Monetary 500–999</field>
+        <field name="metric">monetary</field>
+        <field name="value_from">500</field>
+        <field name="value_to">999</field>
+        <field name="score">2</field>
+        <field name="sequence">2</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="rfm_rule_monetary_3" model="rfm.rule">
+        <field name="name">Monetary 1000–1999</field>
+        <field name="metric">monetary</field>
+        <field name="value_from">1000</field>
+        <field name="value_to">1999</field>
+        <field name="score">3</field>
+        <field name="sequence">3</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="rfm_rule_monetary_4" model="rfm.rule">
+        <field name="name">Monetary 2000–4999</field>
+        <field name="metric">monetary</field>
+        <field name="value_from">2000</field>
+        <field name="value_to">4999</field>
+        <field name="score">4</field>
+        <field name="sequence">4</field>
+        <field name="active">True</field>
+    </record>
+
+    <record id="rfm_rule_monetary_5" model="rfm.rule">
+        <field name="name">Monetary ≥ 5000</field>
+        <field name="metric">monetary</field>
+        <field name="value_from">5000</field>
+        <field name="value_to">99999999</field>
+        <field name="score">5</field>
+        <field name="sequence">5</field>
+        <field name="active">True</field>
+    </record>
+
+</odoo>

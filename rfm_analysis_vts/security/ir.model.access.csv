@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_rfm_rule_salesman,rfm_rule,model_rfm_rule,sales_team.group_sale_salesman,1,1,1,1
+access_rfm_segment_rule_salesman,rfm_segment_rule,model_rfm_segment_rule,sales_team.group_sale_salesman,1,1,1,1
+access_rfm_segment_dashboard_salesman,rfm_segment_dashboard,model_rfm_segment_dashboard,sales_team.group_sale_salesman,1,1,1,1
+access_rfm_segments_salesman,rfm_segments,model_rfm_segments,sales_team.group_sale_salesman,1,1,1,1
+access_rfm_log,rfm_log,model_rfm_log,,1,1,1,1
+
+
+
+
+
+

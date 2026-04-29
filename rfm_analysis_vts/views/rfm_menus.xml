@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Root menu -->
+    <!-- RFM ROOT MENU (Top-level under Sales) -->
+
+    <menuitem id="menu_rfm_root"
+              name="RFM"
+              parent="sale.sale_menu_root"
+              groups="sales_team.group_sale_salesman"
+              sequence="35"/>
+
+    <!-- Child menus -->
+    <menuitem id="menu_rfm_rules"
+              name="RFM Scoring Rules"
+              parent="menu_rfm_root"
+              action="action_rfm_rule"
+              sequence="10"/>
+
+    <menuitem id="menu_rfm_segments"
+              name="RFM Segments"
+              parent="menu_rfm_root"
+              action="action_rfm_segment_rule"
+              sequence="20"/>
+
+    <menuitem id="menu_rfm_dashboard"
+              name="RFM Dashboard"
+              parent="menu_rfm_root"
+              action="action_rfm_segment_dashboard"
+              sequence="30"/>
+</odoo>
